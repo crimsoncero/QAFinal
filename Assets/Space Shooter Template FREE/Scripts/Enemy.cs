@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
     #region FIELDS
     [Tooltip("Health points in integer")]
     public int health;
+    public int shield;
 
     [Tooltip("Enemy's projectile prefab")]
     public GameObject Projectile;
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour {
     }
 
     //coroutine making a shot
-    void ActivateShooting() 
+    protected virtual void ActivateShooting() 
     {
         if (Random.value < (float)shotChance / 100)                             //if random value less than shot probability, making a shot
         {                         
@@ -39,11 +40,20 @@ public class Enemy : MonoBehaviour {
     //method of getting damage for the 'Enemy'
     public void GetDamage(int damage) 
     {
-        health -= damage;           //reducing health for damage value, if health is less than 0, starting destruction procedure
-        if (health <= 0)
-            Destruction();
-        else
+        if (shield > 0)
+        {
+            shield -= damage;
             Instantiate(hitEffect,transform.position,Quaternion.identity,transform);
+        }
+        else
+        {
+            health -= damage;           //reducing health for damage value, if health is less than 0, starting destruction procedure
+            if (health <= 0)
+                Destruction();
+            else
+                Instantiate(hitEffect,transform.position,Quaternion.identity,transform);
+        }
+       
     }    
 
     //if 'Enemy' collides 'Player', 'Player' gets the damage equal to projectile's damage value
