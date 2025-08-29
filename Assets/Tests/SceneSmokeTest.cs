@@ -6,6 +6,8 @@ using UnityEngine.TestTools;
 
 public class SceneSmokeTest
 {
+    // Add test case per scene that needs to be in the build    
+    
     [TestCase("Stage 1", ExpectedResult = (IEnumerator)null)]
     [TestCase("Stage 2", ExpectedResult = (IEnumerator)null)]
     [UnityTest]
