@@ -81,7 +81,14 @@ jobs:
         with:
           name: Playmode-Test-Results
           path: artifacts/TestResults/Playmode
-
+      
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        with:
+          name: Unity EditMode Tests
+          path: TestResults/EditModeResults.xml
+          format: unity-junit
+          fail-on-error: true
   # Job to deploy the build to GitHub Releases
   deployToGitHubReleases:
     name: Deploy to GitHub Releases
