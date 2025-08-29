@@ -1,6 +1,6 @@
 name: Build, Test, and Deploy Unity Project
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   # Job to build the StandaloneWindows64 platform
