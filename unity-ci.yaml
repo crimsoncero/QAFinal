@@ -26,7 +26,7 @@ jobs:
       - name: Run tests
         uses: game-ci/unity-test-runner@v4
         with:
-          unityVersion: 2022.3.0f1   # <-- change to your Unity version
+          unityVersion: 6000.0.43f1   # <-- change to your Unity version
           testMode: all              # options: editmode, playmode, all
 
       # 4. Upload test results
