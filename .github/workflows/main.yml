@@ -112,6 +112,6 @@ jobs:
             New release based on tag ${{ github.ref_name }}.
             This release includes the StandaloneWindows64 build, compressed for easier download.
           draft: false # Set to true to create a draft release
-          prerelease: false # Set to true for a pre-release
+          prerelease: true # Set to true for a pre-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub's built-in token for authentication
