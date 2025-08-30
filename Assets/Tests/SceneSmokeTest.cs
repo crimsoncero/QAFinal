@@ -7,12 +7,11 @@ using UnityEngine.TestTools;
 public class SceneSmokeTest
 {
     // Add test case per scene that needs to be in the build    
-    
-    [TestCase("Stage 1", ExpectedResult = (IEnumerator)null)]
-    [TestCase("Stage 2", ExpectedResult = (IEnumerator)null)]
+
     [UnityTest]
-    public IEnumerator SceneLoadsWithoutErrors(string sceneName)
+    public IEnumerator SceneOne()
     {
+        string sceneName = "Stage 1";
         var asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
 
         while (!asyncLoad.isDone)
@@ -22,4 +21,19 @@ public class SceneSmokeTest
         
         Assert.AreEqual(sceneName, SceneManager.GetActiveScene().name);
     }
+    
+    [UnityTest]
+    public IEnumerator SceneTwo()
+    {
+        string sceneName = "Stage 2";
+        var asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+    
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        
+        Assert.AreEqual(sceneName, SceneManager.GetActiveScene().name);
+    }
+    
 }

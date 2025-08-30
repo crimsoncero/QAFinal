@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,11 @@ public class Projectile : MonoBehaviour {
 
     [Tooltip("Whether the projectile is destroyed in the collision, or not")]
     public bool destroyedByCollision;
+
+    private void Start()
+    {
+        Debug.Log(enemyBullet ? "Enemy Projectile Spawned" : "Player Projectile Spawned");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) //when a projectile collides with another object
     {
