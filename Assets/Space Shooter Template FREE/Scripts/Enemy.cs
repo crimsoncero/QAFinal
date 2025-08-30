@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
     [Tooltip("VFX prefab generating after destruction")]
     public GameObject destructionVFX;
     public GameObject hitEffect;
+    public GameObject hitEffectShield;
     
     [HideInInspector] public int shotChance; //probability of 'Enemy's' shooting during tha path
     [HideInInspector] public float shotTimeMin, shotTimeMax; //max and min time for shooting from the beginning of the path
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour {
     private void Start()
     {
         Invoke("ActivateShooting", Random.Range(shotTimeMin, shotTimeMax));
+        Debug.Log("Enemy Spawned");
     }
 
     //coroutine making a shot
@@ -42,11 +44,13 @@ public class Enemy : MonoBehaviour {
     {
         if (shield > 0)
         {
+            Debug.Log("Enemy Shield Hit");
             shield -= damage;
-            Instantiate(hitEffect,transform.position,Quaternion.identity,transform);
+            Instantiate(hitEffectShield,transform.position,Quaternion.identity,transform);
         }
         else
         {
+            Debug.Log("Enemy Hull Hit");
             health -= damage;           //reducing health for damage value, if health is less than 0, starting destruction procedure
             if (health <= 0)
                 Destruction();
@@ -70,7 +74,8 @@ public class Enemy : MonoBehaviour {
 
     //method of destroying the 'Enemy'
     void Destruction()                           
-    {        
+    {  
+        Debug.Log("Enemy Destroyed");
         Instantiate(destructionVFX, transform.position, Quaternion.identity); 
         Destroy(gameObject);
     }

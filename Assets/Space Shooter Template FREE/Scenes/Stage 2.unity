@@ -119,6 +119,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &100133178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100133179}
+  - component: {fileID: 100133180}
+  m_Layer: 0
+  m_Name: Level_Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &100133179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100133178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 974050357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100133180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100133178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9bf8a9458cbcc4780624e9670a91f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyWaves:
+  - timeToStart: 0
+    wave: {fileID: 1947974370059188, guid: 38a9595bf3e33d7408db81fb8688c52b, type: 3}
+  - timeToStart: 4
+    wave: {fileID: 1692215992462570, guid: 9039d0a52ce3c1c4ca256e4e12a3036e, type: 3}
+  - timeToStart: 8
+    wave: {fileID: 1945754960637166, guid: 4fbeebfce38d23a4caecc044b28429d3, type: 3}
+  - timeToStart: 12
+    wave: {fileID: 1254980403870950, guid: 1dd03079f596ece4685a9219497ac99d, type: 3}
+  - timeToStart: 16
+    wave: {fileID: 1177001650480530, guid: 5bc0b78c1f9952f4fbb4f526f6b6a1a6, type: 3}
+  - timeToStart: 20
+    wave: {fileID: 1947974370059188, guid: 073444e8d464ad5458799f2bc2786452, type: 3}
+  powerUp: {fileID: 1180221311273546, guid: 71f89368f03bd5740a7f17e106b277bb, type: 3}
+  timeForNewPowerup: 10
+  planets:
+  - {fileID: 1420951587850870, guid: 14ba388dd3927af43809d67838649ea3, type: 3}
+  - {fileID: 1017342213867866, guid: c1ae0b8d643fbea439d40b05d4acd750, type: 3}
+  - {fileID: 1868464169396128, guid: 284631a95d42dc047b90d8af25ac4457, type: 3}
+  timeBetweenPlanets: 15
+  planetsSpeed: -1
 --- !u!1001 &271878659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,6 +359,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20749257262812270, guid: 01cf4a33fc66cde4abc060ccfeadeb5a,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 309
+      objectReference: {fileID: 0}
     - target: {fileID: 114004447756405556, guid: 01cf4a33fc66cde4abc060ccfeadeb5a,
         type: 3}
       propertyPath: enemyWaves.Array.size
@@ -306,10 +376,21 @@ PrefabInstance:
       objectReference: {fileID: 1947974370059188, guid: 073444e8d464ad5458799f2bc2786452,
         type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1761238424061232, guid: 01cf4a33fc66cde4abc060ccfeadeb5a, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4984263745758592, guid: 01cf4a33fc66cde4abc060ccfeadeb5a,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 100133179}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01cf4a33fc66cde4abc060ccfeadeb5a, type: 3}
+--- !u!4 &974050357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4984263745758592, guid: 01cf4a33fc66cde4abc060ccfeadeb5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 974050356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1259034039
 LightingSettings:
   m_ObjectHideFlags: 0

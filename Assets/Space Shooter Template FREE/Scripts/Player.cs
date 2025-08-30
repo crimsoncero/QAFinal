@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 /// <summary>
 /// This script defines which sprite the 'Player" uses and its health.
@@ -11,8 +8,10 @@ public class Player : MonoBehaviour
 {
     public GameObject destructionFX;
 
-    public static Player instance; 
+    public static Player instance;
 
+    private bool _isImmune = false;
+    
     private void Awake()
     {
         if (instance == null) 
@@ -20,8 +19,10 @@ public class Player : MonoBehaviour
     }
 
     //method for damage proceccing by 'Player'
-    public void GetDamage(int damage)   
+    public void GetDamage(int damage)
     {
+        if (_isImmune) return;
+        
         Destruction();
     }    
 
@@ -29,7 +30,13 @@ public class Player : MonoBehaviour
     void Destruction()
     {
         Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect and destroying the 'Player' object
+        Debug.Log("Player Destroyed");
         Destroy(gameObject);
+    }
+
+    public void SetImmune(bool isImmune)
+    {
+        _isImmune = isImmune;
     }
 }
 
